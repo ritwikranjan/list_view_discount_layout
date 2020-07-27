@@ -18,32 +18,39 @@ class MyApp extends StatelessWidget {
         ),
         body: Container(
           margin: EdgeInsets.all(10.0),
-          child: ListView.builder(itemBuilder: (_, index) {
-            return Padding(
-              padding: const EdgeInsets.symmetric(vertical: 4.0),
-              child: Card(
-                color: Colors.grey[400],
-                child: ListTile(
-                  contentPadding:
-                      const EdgeInsets.fromLTRB(6.0, 10.0, 4.0, 0.0),
-                  leading: Icon(
-                    Icons.local_offer,
-                    size: 25.0,
-                  ),
-                  title: Text(
-                      'This is Your Coupon Card for a huge discount $index'),
-                  subtitle: Padding(
-                    padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
-                    child: Text(
-                      '*Terms and Conditions Apply',
-                      style: TextStyle(fontSize: 10.0),
-                      textAlign: TextAlign.end,
+          child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (_, index) {
+                return Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 4.0),
+                  child: Card(
+                    color: Colors.grey[400],
+                    child: ListTile(
+                      contentPadding:
+                          const EdgeInsets.fromLTRB(6.0, 0.0, 4.0, 0.0),
+                      leading: Container(
+                        height: 50.0,
+                        child: Image.asset(
+                          'images/discount.png',
+                        ),
+                      ),
+                      title: Container(
+                        padding: EdgeInsets.only(top: 16.0),
+                        child: Text(
+                            'This is Your Coupon Card for a huge discount $index'),
+                      ),
+                      subtitle: Padding(
+                        padding: const EdgeInsets.fromLTRB(0.0, 5.0, 0.0, 0.0),
+                        child: Text(
+                          '*Terms and Conditions Apply',
+                          style: TextStyle(fontSize: 10.0),
+                          textAlign: TextAlign.end,
+                        ),
+                      ),
                     ),
                   ),
-                ),
-              ),
-            );
-          }),
+                );
+              }),
         ),
       ),
     );
